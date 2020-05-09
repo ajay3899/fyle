@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+   <title>Index</title>
+   <link rel="stylesheet" type="text/css"href="style.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>function onCheckboxChanged(checked){
+	if(checked){
+		$("#hiddenRow").fadeIn();
+        $("#hiddenRow1").fadeIn();
+		$("#hiddenRow2").fadeIn();
+
+    $("#hidden").fadeOut();
+    $("#hidden1").fadeOut();
+    $("#hidden2").fadeOut();
+
+
+  }	
+	else {
+     $("#hiddenRow").fadeOut();
+     $("#hiddenRow1").fadeOut();
+     $("#hiddenRow2").fadeOut();
+
+     $("#hidden").fadeIn();
+     $("#hidden1").fadeIn();
+     $("#hidden2").fadeIn();
+
+  }
+}</script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+   <style>
+    input[type="checkbox"]{
+      position: relative;
+      width: 80px;
+      height: 40px;
+      -webkit-appearance: none;
+      background: #c6c6c6;
+      outline: none;
+      border-radius: 20px;
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+     transition: .5s;
+    }
+    input:checked[type="checkbox"]{
+      background: #03a9f4;
+  
+    }
+    input[type="checkbox"]:before{
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      top:0;
+      left:0;
+      background: #fff;
+      transform: scale(1.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      transition: .5s;
+      
+    }
+    input:checked[type="checkbox"]:before{
+      left: 40px;
+    }
+  </style>
+</head>
+<body ng-app="myApp">
+    <div class="start" style="margin-left: 150px;">
+    <div class="looking-for-a-lollip">
+        <p>Looking for a lollipop alternative?</p>   
+         
+    </div>
+    <div class="body">
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+    </div>
+    <div class="bg">
+        <div class= "cta-text">
+            <p>Primary CTA</p>
+        </div>
+
+    </div>
+    <div class="outline">
+        <div class="cta-text1">
+           <p>Secondary CTA</p>
+        </div>
+        
+    </div>
+    <div class="pic">
+        <img src="globe.jpeg">
+
+    </div>
+    </div><br><br><br><br><br>
+    <div class="bg1">
+        <img src="BG.png">
+    </div>
+    <div class="this-is-a-heading-in">
+        <pre>This is a heading in
+two lines</pre>
+        <img src="Group 6.png">
+        <div class="compare-pricing-toda">
+            <p>Compare pricing today!</p>
+        </div>
+        <div class="lorem-ipsum-is-simpl">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+        </div>
+<!--  INTERACTIONS START HERE......................................................................................................-->
+<div ng-controller="myCtrl">
+<div class="rectangle"> 
+    <button ng-click="myFunc1()" class="serving1">25 serving</button>
+  
+  
+   
+    <button ng-click="myFunc2() " class= "serving2">50 serving</button>
+  
+  
+   
+    <button ng-click="myFunc3()" class= "serving3">100 serving</button>
+  
+  
+    
+    <button ng-click="myFunc4()" class="serving3" style="margin-left: 0px;">200 serving</button>     
+        
+    
+    
+    
+    
+    
+    
+</div>    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+ <!-- Servings above-->  <br><br> 
+ <span class="annual">Annual</span>
+ <span class="off">50% off</span>
+ <input style="margin-top: -10px; margin-left: 0px;" type="checkbox" onchange="onCheckboxChanged(this.checked)" name="member" />
+ <span class="monthly">monthly</span>
+
+    
+    <div class="rectangle-copy-17">
+        <div class="rectangle-copy-18"></div>
+    </div>
+    <div class="lollipop">
+        <p>lollipop </p>
+        <br>
+    </div>
+    <div class="h100">
+        <div id="hiddenRow" style="display:none;"><p>${{l}}</p></div>
+        <div id="hidden" style="display:block;"><p>${{l/2}}</p></div>
+    </div>
+    <div class="body-copy-35">
+        <p>Per month</p>
+    </div>
+    <div class="body-copy-5"><p>For 100  serving</p></div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="icecandy">
+        <p>Icecandy</p>
+    </div>
+    <div class="h200">
+        <div id="hidden1" style="display:block;"><p>${{i/2}}</p></div>
+        <div id="hiddenRow1" style="display:none;"><p>${{i}}</p></div>
+
+    </div>
+    
+    <div class="body-copy-36">
+        <p>Per month</p>
+    </div>
+    <div class="body-copy-6"><p>For 100  serving</p></div>
+
+    <div class="rectangle-copy-19">
+    </div>
+    <div class="your-savings-with-lo">
+        <p>Your savings
+            with lollipop</p>
+    </div>
+    <div class="hh100">
+        <div id="hiddenRow2" style="display:none;"><p>${{s}}</p></div>
+        <div id="hidden2" style="display:block;"><p>${{s/2}}</p></div>
+    </div>
+    <div class="body-copy-37">
+        <p>Per month</p>
+    </div><br><br><br><br><br>
+</div>
+<!-- INTERACTION SCRIPYT-->
+<script>
+    angular.module('myApp', [])
+      .controller('myCtrl', ['$scope', function($scope) {
+        $scope.i = 50;
+        $scope.l =25;
+        $scope.s = $scope.i - $scope.l;
+    
+        $scope.myFunc1 = function() {
+          $scope.i= 50;
+          $scope.l= 25;
+          $scope.s = $scope.i - $scope.l;
+    
+        };
+        $scope.myFunc2 = function() {
+          $scope.i= 100;
+          $scope.l= 50;
+          $scope.s = $scope.i - $scope.l;
+    
+        };
+        $scope.myFunc3 = function() {
+          $scope.i= 200;
+          $scope.l= 100;
+          $scope.s = $scope.i - $scope.l;
+    
+        };
+        $scope.myFunc4 = function() {
+          $scope.i= 400;
+          $scope.l= 200;
+          $scope.s = $scope.i - $scope.l;
+    
+        };
+      }]);
+    </script>
+    <!-- INTERACTIONS END HERE...................................................................................................-->
+    <div class="heres-what-our-cust">
+       <p>Here’s what our customers have to say </p> 
+    </div>
+    <div class="bitmap">
+        <img src="man.jpeg">
+    </div>
+    <div class="lorem-ipsum-is-simpl1"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p></div>
+   <div class="raja-ram"><p>Raja Ram</p></div>
+   <div class="tip-world"><p>Tip World</p></div>
+   <div class="oval1">
+       <div class="oval-copy1"><div class="oval-copy1"></div> <div class="oval-copy1" style="margin-left: 50px; margin-top: -10px;"></div></div>
+   </div> <br><br>
+   <div class="loved-by-users-reco-copy-2" style="margin-left: 300px;"><p>Loved by users, 
+    recommended by experts</p></div>
+    <div class="lorem-ipsum-is-simpl" style="margin-top: -30px; margin-left: 300px; width: 330px; text-align: left;"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p></div>
+    <div class="shape" style="margin-left: 325px;">
+    </div>
+    <div class="primary-cta2" style="margin-left: -655px;  margin-top: -65px;"><p>Primary CTA</p></div>
+    <div style="margin-left: 600px; margin-top: -350px;"><img src="Group 4.png"></div>
+    <br><br><br><br><br>
+</body>
+</html>
